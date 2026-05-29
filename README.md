@@ -1,0 +1,1 @@
+# practica-profesional-uniminuto-analizador-wcag-estatico
