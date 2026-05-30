@@ -1,0 +1,72 @@
+[
+  {
+    "documento": "test-pages/pagina1.html",
+    "fechaAuditoria": "2026-05-30T05:17:42.108Z",
+    "totalViolaciones": 1,
+    "resultados": [
+      {
+        "ruleId": "2.4.6",
+        "level": "AA",
+        "element": "h1",
+        "message": "Encabezado H1 sigue un orden lógico.",
+        "passed": true
+      },
+      {
+        "ruleId": "1.4.3",
+        "level": "AA",
+        "element": "p[index=0]",
+        "message": "Violación: Combinación crítica de alto riesgo de contraste (Texto blanco sobre fondo blanco/claro inline).",
+        "passed": false
+      }
+    ]
+  },
+  {
+    "documento": "test-pages/pagina2.html",
+    "fechaAuditoria": "2026-05-30T05:17:42.144Z",
+    "totalViolaciones": 1,
+    "resultados": [
+      {
+        "ruleId": "2.4.6",
+        "level": "AA",
+        "element": "h1",
+        "message": "Encabezado H1 sigue un orden lógico.",
+        "passed": true
+      },
+      {
+        "ruleId": "2.4.6",
+        "level": "AA",
+        "element": "h3",
+        "message": "Violación: Salto incorrecto en la jerarquía de encabezados. Se pasó de un H1 a un H3 de forma abrupta.",
+        "passed": false
+      }
+    ]
+  },
+  {
+    "documento": "test-pages/pagina3.html",
+    "fechaAuditoria": "2026-05-30T05:17:42.163Z",
+    "totalViolaciones": 1,
+    "resultados": [
+      {
+        "ruleId": "1.1.1",
+        "level": "A",
+        "element": "img[index=0]",
+        "message": "Atributo alt presente.",
+        "passed": true
+      },
+      {
+        "ruleId": "1.1.1",
+        "level": "A",
+        "element": "img[index=1]",
+        "message": "Violación: Imagen detectada sin el atributo alt.",
+        "passed": false
+      },
+      {
+        "ruleId": "2.4.6",
+        "level": "AA",
+        "element": "h1",
+        "message": "Encabezado H1 sigue un orden lógico.",
+        "passed": true
+      }
+    ]
+  }
+]

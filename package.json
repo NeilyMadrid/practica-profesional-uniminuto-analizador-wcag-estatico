@@ -1,0 +1,35 @@
+{
+  "name": "practica-profesional-uniminuto-analizador-wcag-estatico",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeilyMadrid/practica-profesional-uniminuto-analizador-wcag-estatico.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/NeilyMadrid/practica-profesional-uniminuto-analizador-wcag-estatico/issues"
+  },
+  "homepage": "https://github.com/NeilyMadrid/practica-profesional-uniminuto-analizador-wcag-estatico#readme",
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/jsdom": "^28.0.3",
+    "@types/node": "^25.9.1",
+    "eslint": "^10.4.1",
+    "jest": "^30.4.2",
+    "prettier": "^3.8.3",
+    "ts-jest": "^29.4.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "jsdom": "^29.1.1"
+  }
+}
