@@ -7,6 +7,9 @@
     "dev": "ts-node src/index.ts",
     "test": "jest"
   },
+  "bin": {
+	"i-access-analyze": "bin/run.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NeilyMadrid/practica-profesional-uniminuto-analizador-wcag-estatico.git"
@@ -31,6 +34,9 @@
     "typescript": "^6.0.3"
   },
   "dependencies": {
+    "axios": "^1.17.0",
     "jsdom": "^21.1.0"
   }
 }
+
+

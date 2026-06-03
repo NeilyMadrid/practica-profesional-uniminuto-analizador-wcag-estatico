@@ -1,0 +1,3 @@
+Regla,Nivel,Elemento,Mensaje,Aprobado
+"2.4.6","AA","h1","Encabezado H1 sigue un orden lógico.","true"
+"1.4.3","AA","p[index=0]","Violación: Combinación crítica de alto riesgo de contraste (Texto blanco sobre fondo blanco/claro inline).","false"
