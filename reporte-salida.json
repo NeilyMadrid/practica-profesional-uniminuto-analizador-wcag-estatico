@@ -1,100 +1,34 @@
-[
-  {
-    "documento": "test-pages/pagina1.html",
-    "fechaAuditoria": "2026-05-30T22:07:51.975Z",
-    "totalViolaciones": 1,
-    "resultados": [
-      {
-        "ruleId": "2.4.6",
-        "level": "AA",
-        "element": "h1",
-        "message": "Encabezado H1 sigue un orden lógico.",
-        "passed": true
-      },
-      {
-        "ruleId": "1.4.3",
-        "level": "AA",
-        "element": "p[index=0]",
-        "message": "Violación: Combinación crítica de alto riesgo de contraste (Texto blanco sobre fondo blanco/claro inline).",
-        "passed": false
-      }
-    ]
-  },
-  {
-    "documento": "test-pages/pagina2.html",
-    "fechaAuditoria": "2026-05-30T22:07:51.986Z",
-    "totalViolaciones": 1,
-    "resultados": [
-      {
-        "ruleId": "2.4.6",
-        "level": "AA",
-        "element": "h1",
-        "message": "Encabezado H1 sigue un orden lógico.",
-        "passed": true
-      },
-      {
-        "ruleId": "2.4.6",
-        "level": "AA",
-        "element": "h3",
-        "message": "Violación: Salto incorrecto en la jerarquía de encabezados. Se pasó de un H1 a un H3 de forma abrupta.",
-        "passed": false
-      }
-    ]
-  },
-  {
-    "documento": "test-pages/pagina3.html",
-    "fechaAuditoria": "2026-05-30T22:07:51.995Z",
-    "totalViolaciones": 1,
-    "resultados": [
-      {
-        "ruleId": "1.1.1",
-        "level": "A",
-        "element": "img[index=0]",
-        "message": "Atributo alt presente.",
-        "passed": true
-      },
-      {
-        "ruleId": "1.1.1",
-        "level": "A",
-        "element": "img[index=1]",
-        "message": "Violación: Imagen detectada sin el atributo alt.",
-        "passed": false
-      },
-      {
-        "ruleId": "2.4.6",
-        "level": "AA",
-        "element": "h1",
-        "message": "Encabezado H1 sigue un orden lógico.",
-        "passed": true
-      }
-    ]
-  },
-  {
-    "documento": "test-pages/pagina4.html",
-    "fechaAuditoria": "2026-05-30T22:07:52.006Z",
-    "totalViolaciones": 3,
-    "resultados": [
-      {
-        "ruleId": "4.1.2",
-        "level": "A",
-        "element": "button[index=0]",
-        "message": "Violación: Botón sin texto interno ni aria-label.",
-        "passed": false
-      },
-      {
-        "ruleId": "4.1.2",
-        "level": "A",
-        "element": "div[index=0]",
-        "message": "Violación: Atributo aria-label presente pero vacío.",
-        "passed": false
-      },
-      {
-        "ruleId": "2.4.4",
-        "level": "A",
-        "element": "a[index=0]",
-        "message": "Violación: Enlace vacío o con texto genérico no descriptivo.",
-        "passed": false
-      }
-    ]
-  }
-]
+{
+  "documento": "test-pages/pagina4.html",
+  "totalViolaciones": 3,
+  "resultados": [
+    {
+      "ruleId": "4.1.2",
+      "level": "A",
+      "element": "button[index=0]",
+      "message": "Violación: Botón sin texto interno ni aria-label.",
+      "passed": false
+    },
+    {
+      "ruleId": "4.1.2",
+      "level": "A",
+      "element": "div[index=0]",
+      "message": "Violación: Atributo aria-label presente pero vacío.",
+      "passed": false
+    },
+    {
+      "ruleId": "2.4.4",
+      "level": "A",
+      "element": "a[index=0]",
+      "message": "Violación: Enlace vacío o con texto genérico no descriptivo.",
+      "passed": false
+    },
+    {
+      "ruleId": "4.1.2",
+      "level": "A",
+      "element": "div[role=\"region\"]",
+      "message": "Rol ARIA válido.",
+      "passed": true
+    }
+  ]
+}

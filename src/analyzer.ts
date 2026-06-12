@@ -32,6 +32,11 @@ export class WCAGAnalyzer {
         results.push(...this.auditBotonesSinTexto());
         results.push(...this.auditAriaLabel());
         results.push(...this.auditEnlacesSinTexto());
+
+        // Nuevas Reglas Semana 5
+        results.push(...this.auditInvalidAriaRoles());
+        results.push(...this.auditTableHeaders());
+        results.push(...this.auditDynamicOpacity());
        
         return results;
     }
@@ -185,6 +190,52 @@ export class WCAGAnalyzer {
             results.push({
                 ruleId: '2.4.4', level: 'A', element: `a[index=${index}]`,
                 message: passed ? 'Enlace significativo.' : 'Violación: Enlace vacío o con texto genérico no descriptivo.', passed
+            });
+        });
+        return results;
+    }
+
+    /*
+        Semana 5
+    */
+    private auditInvalidAriaRoles(): AuditResult[] {
+        const elements = this.document.querySelectorAll('[role]');
+        const validRoles = ['alert', 'alertdialog', 'application', 'article', 'banner', 'button', 'cell', 'checkbox', 'columnheader', 'combobox', 'complementary', 'contentinfo', 'definition', 'dialog', 'directory', 'document', 'feed', 'figure', 'form', 'grid', 'gridcell', 'group', 'heading', 'img', 'link', 'list', 'listbox', 'listitem', 'log', 'main', 'marquee', 'math', 'menu', 'menubar', 'menuitem', 'menuitemcheckbox', 'menuitemradio', 'navigation', 'none', 'note', 'option', 'presentation', 'progressbar', 'radio', 'radiogroup', 'region', 'row', 'rowgroup', 'rowheader', 'scrollbar', 'search', 'searchbox', 'separator', 'slider', 'spinbutton', 'status', 'switch', 'tab', 'table', 'tablist', 'tabpanel', 'term', 'textbox', 'timer', 'toolbar', 'tooltip', 'tree', 'treegrid', 'treeitem'];
+        
+        const results: AuditResult[] = [];
+        elements.forEach((el, index) => {
+            const role = el.getAttribute('role')?.toLowerCase() || '';
+            const passed = validRoles.includes(role);
+            results.push({
+                ruleId: '4.1.2', level: 'A', element: `${el.tagName.toLowerCase()}[role="${role}"]`,
+                message: passed ? 'Rol ARIA válido.' : `Violación: El rol '${role}' no existe en el estándar W3C.`, passed
+            });
+        });
+        return results;
+    }
+
+    private auditTableHeaders(): AuditResult[] {
+        const tables = this.document.querySelectorAll('table');
+        const results: AuditResult[] = [];
+        tables.forEach((table, index) => {
+            const hasHeaders = table.querySelectorAll('th').length > 0;
+            results.push({
+                ruleId: '1.3.1', level: 'A', element: `table[index=${index}]`,
+                message: hasHeaders ? 'Tabla con encabezados detectados.' : 'Violación: Tabla sin estructura de encabezados (<th>).', passed: hasHeaders
+            });
+        });
+        return results;
+    }
+
+    private auditDynamicOpacity(): AuditResult[] {
+        const elementsWithStyle = this.document.querySelectorAll('[style]');
+        const results: AuditResult[] = [];
+        elementsWithStyle.forEach((el, index) => {
+            const style = el.getAttribute('style')?.replace(/\s+/g, '').toLowerCase() || '';
+            const passed = !style.includes('opacity:0;');
+            results.push({
+                ruleId: '1.4.3', level: 'AA', element: `${el.tagName.toLowerCase()}[index=${index}]`,
+                message: passed ? 'Estilos dinámicos válidos.' : 'Violación: Opacidad nula detectada (ocultamiento visual que rompe lecturas ARIA).', passed
             });
         });
         return results;

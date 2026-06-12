@@ -3,6 +3,7 @@ import * as path from 'path';
 import axios from 'axios';
 import { WCAGAnalyzer } from './analyzer';
 import { generateCSV, generateHTML, generateJSON } from './reporter';
+import { performance } from 'perf_hooks';
 
 async function run() {
     const args = process.argv.slice(2);
@@ -37,8 +38,22 @@ async function run() {
             htmlContent = fs.readFileSync(path.resolve(target), 'utf-8');
         }
 
+        // 1. Preparación del entorno (fuera del cronómetro)
         const analyzer = new WCAGAnalyzer(htmlContent);
+
+        // --- INICIO DE MEDICIÓN DE RENDIMIENTO ---
+        const startTime = performance.now();
+
+        // 2. Ejecución de las reglas WCAG
         const results = analyzer.runAudit();
+
+        // --- FIN DE MEDICIÓN ---
+        const endTime = performance.now();
+        const executionTime = (endTime - startTime).toFixed(2);
+        
+
+        console.log(`Análisis estructural completado en: ${executionTime} ms`);
+
         const reportData = {
             documento: target, 
             totalViolaciones: results.filter(r => !r.passed).length, 
